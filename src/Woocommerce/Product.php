@@ -460,7 +460,9 @@ class Product
                                 $item->add_meta_data($field->data('title') . __(' (url)', 'wc-kalkulator'), $order_fields['_files'][$name]['upload_url'], true);
                             }
                         } else {
-                            $item->add_meta_data($field->data('title'), $field_value, true);
+                            if ($order_fields[$name] != '') {
+					            $item->add_meta_data($field->data('title'), $field_value, true);
+				            }
                         }
                     } else {
                         if ($field->is_required()) {
